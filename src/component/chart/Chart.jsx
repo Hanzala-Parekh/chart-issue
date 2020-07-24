@@ -16,7 +16,7 @@ const Chart = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ margin: "0 auto 0 auto", width: "80%" }}>
       {dailyData.length && (
         <Line
           data={{
