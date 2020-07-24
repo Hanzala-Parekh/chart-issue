@@ -7,6 +7,7 @@ export const fetchData = async () => {
     const {
       data: { confirmed, recovered, deaths, lastUpdate },
     } = await axios.get(url);
+    console.log(await axios.get(url));
     return { confirmed, recovered, deaths, lastUpdate };
   } catch (error) {}
 };
@@ -18,8 +19,10 @@ export const fetchDailyData = async () => {
     const modifiedData = data.map((dailyData) => ({
       confirmed: dailyData.confirmed.total,
       deaths: dailyData.deaths.total,
-      date: dailyData.reportData,
+      date: dailyData.reportDate,
     }));
     return modifiedData;
-  } catch (error) {}
+  } catch (error) {
+    console.error("Error with api : ", error);
+  }
 };
